@@ -12,8 +12,7 @@ class AppCubit extends Cubit<AppState> {
   bool isLiked = false;
 
   whenLikePressed(index) {
-    isLiked = !isLiked;
-    DUMMY_TOPLIKES[index].isLiked = isLiked;
+    DUMMY_TOPLIKES[index].isLiked = !DUMMY_TOPLIKES[index].isLiked!;
     print(DUMMY_TOPLIKES[index].isLiked!);
     emit(LikeBtnPressed());
   }

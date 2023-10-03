@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                                   cubit.whenLikePressed(
                                       index);
                                 },
-                                child: DUMMY_TOPLIKES[index].isLiked == true
+                                child: DUMMY_TOPLIKES[index].isLiked!
                                     ? const Icon(
                                         Icons.favorite,
                                         color: Colors.red,
