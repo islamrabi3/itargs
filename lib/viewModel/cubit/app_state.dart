@@ -9,3 +9,5 @@ class AppLoadingState extends AppState {}
 class AppSuccess extends AppState {}
 
 class AppError extends AppState {}
+
+class LikeBtnPressed extends AppState {}
