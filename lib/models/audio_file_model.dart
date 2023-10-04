@@ -4,12 +4,12 @@ class AudioObject {
   AudioFileModel? audioFileModel;
 
   AudioObject.fromJson(Map<String ,dynamic>json){
-     audioFileModel = json['audio_file'];
+     audioFileModel = json['audio_file']!= null ? AudioFileModel.fromJson(json['audio_file']) : null;
   }
 }
 
 class AudioFileModel {
-  int ? id , chapterId, fileSize ;
+  dynamic  id , chapterId, fileSize ;
   String ? format, audioUrl;
 
   AudioFileModel.fromJson (Map<String, dynamic> json){

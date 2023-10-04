@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:hive/hive.dart';
 import 'package:itargs_challenge/core/app_string.dart';
+import 'package:itargs_challenge/core/services/cache_helper.dart';
 import 'package:itargs_challenge/models/top_likes.dart';
 import 'package:itargs_challenge/viewModel/cubit/app_cubit.dart';
 
@@ -12,6 +15,7 @@ class HomeScreen extends StatelessWidget {
     return BlocConsumer<AppCubit, AppState>(
       builder: (context, state) {
         var cubit = context.read<AppCubit>();
+        var openLikeBox = Hive.openBox('text_likes');
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
@@ -45,8 +49,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             InkWell(
                                 onTap: () {
-                                  cubit.whenLikePressed(
-                                      index);
+                                  cubit.whenLikePressed(index);
                                 },
                                 child: DUMMY_TOPLIKES[index].isLiked!
                                     ? const Icon(
@@ -64,6 +67,30 @@ class HomeScreen extends StatelessWidget {
                     itemCount: DUMMY_TOPLIKES.length),
               ),
               const Divider(thickness: 2.5),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: buildHeader('Top Likes Audio'),
+              ),
+              const Divider(),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        cubit.playAudioAndPause();
+                      },
+                      child: cubit.isPlaying
+                          ? SvgPicture.asset('assets/pause.svg')
+                          : SvgPicture.asset('assets/play.svg'),
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    const Text('Play The Audio')
+                  ],
+                ),
+              )
             ],
           ),
         );

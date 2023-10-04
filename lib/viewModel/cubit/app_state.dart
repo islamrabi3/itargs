@@ -6,8 +6,8 @@ class AppInitial extends AppState {}
 
 class AppLoadingState extends AppState {}
 
-class AppSuccess extends AppState {}
+class AppSuccessState extends AppState {}
 
-class AppError extends AppState {}
+class AppErrorState extends AppState {}
 
 class LikeBtnPressed extends AppState {}

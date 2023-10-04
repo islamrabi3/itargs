@@ -18,6 +18,7 @@ class _HomeLayoutState extends State<HomeLayout> {
     return Scaffold(
       body: screens[index],
       bottomNavigationBar: BottomNavigationBar(
+          elevation: 15.0,
           currentIndex: index,
           onTap: (value) {
             setState(() {

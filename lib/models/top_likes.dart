@@ -1,8 +1,11 @@
 
-
+import 'package:hive/hive.dart';
+part 'top_likes.g.dart';
+@HiveType(typeId: 1)
 class TopLikesText {
+  @HiveField(2)
   String? textSample;
-  
+  @HiveField(3)
   bool? isLiked ;
 
   TopLikesText ({ required this.textSample ,this.isLiked});
