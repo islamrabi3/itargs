@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 import 'package:itargs_challenge/view/home/home_screen.dart';
 import 'package:itargs_challenge/view/more_screen/more_screen.dart';
 
@@ -9,7 +10,10 @@ class HomeLayout extends StatefulWidget {
   State<HomeLayout> createState() => _HomeLayoutState();
 }
 
-List<Widget> screens = const [HomeScreen(), MoreScreen()];
+List<Widget> screens = [
+  HomeScreen(title: 'flutterTask'.tr),
+  MoreScreen(title: 'moreScreen'.tr),
+];
 int index = 0;
 
 class _HomeLayoutState extends State<HomeLayout> {
@@ -25,9 +29,11 @@ class _HomeLayoutState extends State<HomeLayout> {
               index = value;
             });
           },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.more), label: 'More'),
+          items: [
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.home), label: 'home'.tr),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.more), label: 'more'.tr),
           ]),
     );
   }

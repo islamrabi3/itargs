@@ -11,3 +11,9 @@ class AppSuccessState extends AppState {}
 class AppErrorState extends AppState {}
 
 class LikeBtnPressed extends AppState {}
+
+class ToggleLanguageState extends AppState {}
+
+class ToggleThemeState extends AppState {}
+
+class DownloadAudioState extends AppState {}
